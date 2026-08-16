@@ -1,0 +1,21 @@
+name: 01-building-blocks
+on: push
+
+jobs:
+    echo-hello:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Print Hello
+              run: echo "Hello!"
+    echo-goodbye:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Print Goodbye
+              run: echo "Goodbye!"
+    exit-job:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Exit with code 1
+              run: |
+                echo "This job will exit with code 1"
+                exit 1
