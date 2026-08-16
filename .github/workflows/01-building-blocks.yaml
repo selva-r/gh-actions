@@ -15,7 +15,7 @@ jobs:
     exit-job:
         runs-on: ubuntu-latest
         steps:
-            - name: Exit with code 1
+            - name: Exit with code 0
               run: |
-                echo "This job will exit with code 1"
-                exit 1
+                echo "This job will exit with code 0"
+                exit 0
