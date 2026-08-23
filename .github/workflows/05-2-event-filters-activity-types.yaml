@@ -1,0 +1,13 @@
+name: 05-2-event-filters-activity-types
+on:
+    pull_request:
+        types:
+            - closed
+        branches:
+            - main
+jobs:
+    echo:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Show the trigger
+              run: echo "I've been triggered by a(n) ${{ github.event_name }} event!"
