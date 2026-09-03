@@ -1,0 +1,22 @@
+name: 07-expressions
+
+on: 
+    workflow_dispatch:
+        inputs:
+            debug:
+                type: boolean
+                default: false
+
+jobs:
+    expressions:
+        runs-on: ubuntu-latest
+        steps:
+            - name: '[debug] Print Data'
+              if: ${{ inputs.debug }}
+              run: |
+                echo "I've been triggered by a(n) ${{ github.event_name }} event!"
+                echo "The workflow was triggered by the ${{ github.actor }} user."
+            - name: '[debug] Print Data'
+              if: ${{ inputs.debug && github.ref == 'refs/heads/main' }}
+              run: |
+                echo "I was triggered on the main branch."
