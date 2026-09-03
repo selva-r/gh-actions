@@ -8,6 +8,9 @@ on:
                 type: boolean
                 default: false
 
+env:
+    MY_VAR: "Hello, World!"
+
 jobs:
     echo-data:
         runs-on: ubuntu-latest
@@ -25,3 +28,7 @@ jobs:
             - name: Retrieve variables
               run: |
                 echo "Variable value: ${{ vars.MY_VAR }}"
+            - name: Retrieve environment variables
+              run: |
+                echo "Environment variable value: $MY_VAR"
+                echo "ENV ${{ env.MY_VAR }}"
