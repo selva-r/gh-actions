@@ -1,0 +1,27 @@
+name: 06-context
+run-name: 06-context | DEBUG - ${{ inputs.debug }}
+
+on: 
+    workflow_dispatch:
+        inputs:
+            debug:
+                type: boolean
+                default: false
+
+jobs:
+    echo-data:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Display info
+              run: |
+                echo "I've been triggered by a(n) ${{ github.event_name }} event!"
+                echo "The workflow was triggered by the ${{ github.actor }} user."
+                echo "The workflow is running on the ${{ github.repository }} repository."
+                echo "The workflow is running on the ${{ github.ref }} branch."
+                echo "The workflow is running on the ${{ github.workflow }} workflow."
+                echo "The workflow is running on the ${{ github.run_id }} run."
+                echo "The workflow is running on the ${{ github.run_number }} run number."
+                echo "The workflow is running on the ${{ github.sha }} commit."
+            - name: Retrieve variables
+              run: |
+                echo "Variable value: ${{ vars.MY_VAR }}"
